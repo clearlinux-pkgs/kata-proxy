@@ -1,0 +1,4 @@
+;export GOPATH="${PWD}/gopath/"
+;mkdir -p "${GOPATH}/src/github.com/kata-containers/"
+;ln -sf "${PWD}" "${GOPATH}/src/github.com/kata-containers/shim"
+;cd "${GOPATH}/src/github.com/kata-containers/shim"
