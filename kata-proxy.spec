@@ -4,7 +4,7 @@
 #
 Name     : kata-proxy
 Version  : 1.3.0
-Release  : 7
+Release  : 8
 URL      : https://github.com/kata-containers/proxy/archive/1.3.0.tar.gz
 Source0  : https://github.com/kata-containers/proxy/archive/1.3.0.tar.gz
 Summary  : No detailed summary available
@@ -22,6 +22,7 @@ Patch1: 0001-add-fake-autogen.patch
 %package libexec
 Summary: libexec components for the kata-proxy package.
 Group: Default
+Requires: kata-proxy-license = %{version}-%{release}
 
 %description libexec
 libexec components for the kata-proxy package.
@@ -44,15 +45,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1538493790
+export SOURCE_DATE_EPOCH=1539696576
 %autogen --disable-static ;export GOPATH="${PWD}/gopath/" \
 ;mkdir -p "${GOPATH}/src/github.com/kata-containers/" \
-;ln -sf "${PWD}" "${GOPATH}/src/github.com/kata-containers/shim" \
-;cd "${GOPATH}/src/github.com/kata-containers/shim"
+;ln -sf "${PWD}" "${GOPATH}/src/github.com/kata-containers/proxy" \
+;cd "${GOPATH}/src/github.com/kata-containers/proxy"
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1538493790
+export SOURCE_DATE_EPOCH=1539696576
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kata-proxy
 cp LICENSE %{buildroot}/usr/share/package-licenses/kata-proxy/LICENSE
@@ -73,7 +74,7 @@ cp vendor/golang.org/x/sys/LICENSE %{buildroot}/usr/share/package-licenses/kata-
 /usr/libexec/kata-containers/kata-proxy
 
 %files license
-%defattr(-,root,root,-)
+%defattr(0644,root,root,0755)
 /usr/share/package-licenses/kata-proxy/LICENSE
 /usr/share/package-licenses/kata-proxy/vendor_github.com_davecgh_go-spew_LICENSE
 /usr/share/package-licenses/kata-proxy/vendor_github.com_hashicorp_yamux_LICENSE
