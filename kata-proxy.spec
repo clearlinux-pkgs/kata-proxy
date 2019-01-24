@@ -4,7 +4,7 @@
 #
 Name     : kata-proxy
 Version  : 1.5.0
-Release  : 11
+Release  : 12
 URL      : https://github.com/kata-containers/proxy/archive/1.5.0.tar.gz
 Source0  : https://github.com/kata-containers/proxy/archive/1.5.0.tar.gz
 Summary  : No detailed summary available
