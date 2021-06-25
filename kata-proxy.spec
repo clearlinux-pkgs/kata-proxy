@@ -4,7 +4,7 @@
 #
 Name     : kata-proxy
 Version  : 1.10.8
-Release  : 31
+Release  : 32
 URL      : https://github.com/kata-containers/proxy/archive/1.10.8/proxy-1.10.8.tar.gz
 Source0  : https://github.com/kata-containers/proxy/archive/1.10.8/proxy-1.10.8.tar.gz
 Summary  : No detailed summary available
@@ -46,7 +46,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1605746320
+export SOURCE_DATE_EPOCH=1624661609
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -56,10 +56,13 @@ export CXXFLAGS="$CXXFLAGS -fno-lto "
 ;mkdir -p "${GOPATH}/src/github.com/kata-containers/" \
 ;ln -sf "${PWD}" "${GOPATH}/src/github.com/kata-containers/proxy" \
 ;cd "${GOPATH}/src/github.com/kata-containers/proxy"
+## make_prepend content
+export GO111MODULE="auto"
+## make_prepend end
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1605746320
+export SOURCE_DATE_EPOCH=1624661609
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kata-proxy
 cp %{_builddir}/proxy-1.10.8/LICENSE %{buildroot}/usr/share/package-licenses/kata-proxy/7df059597099bb7dcf25d2a9aedfaf4465f72d8d
