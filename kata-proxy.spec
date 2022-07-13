@@ -4,7 +4,7 @@
 #
 Name     : kata-proxy
 Version  : 1.10.8
-Release  : 42
+Release  : 43
 URL      : https://github.com/kata-containers/proxy/archive/1.10.8/proxy-1.10.8.tar.gz
 Source0  : https://github.com/kata-containers/proxy/archive/1.10.8/proxy-1.10.8.tar.gz
 Summary  : No detailed summary available
